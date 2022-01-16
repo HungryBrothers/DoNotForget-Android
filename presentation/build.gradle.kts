@@ -44,6 +44,7 @@ android {
     }
 
     buildFeatures {
+        viewBinding = true
         dataBinding = true
     }
 }
@@ -55,8 +56,12 @@ dependencies {
     implementation(Dependencies.kotlin.stdLib)
     implementation(Dependencies.material)
     implementation(Dependencies.androidX.constraintLayout)
-    implementation(Dependencies.androidX.fragment)
     implementation(Dependencies.androidX.recyclerView)
+    implementation(Dependencies.androidX.swipeRefreshLayout)
+
+    implementation(Dependencies.androidX.fragment.fragmentKtx)
+    implementation(Dependencies.androidX.fragment.fragmentNavKtx)
+    implementation(Dependencies.androidX.fragment.fragmentNavUi)
 
     implementation(Dependencies.androidX.lifecycle.extensions)
     implementation(Dependencies.androidX.lifecycle.liveData)

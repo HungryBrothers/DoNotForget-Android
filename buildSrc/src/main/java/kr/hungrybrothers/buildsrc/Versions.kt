@@ -15,4 +15,5 @@ object Versions {
     const val glideVersion = "4.12.0"
     const val loggerVersion = "2.2.0"
     const val recyclerViewVersion = "1.2.1"
+    const val swipeRefreshViewVersion = "1.1.0"
 }

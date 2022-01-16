@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="kr.hungrybrothres.donotforget.features.ui.home.subscribe.Sample" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/topFl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="12dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="5dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/viewIndicator"
+                    android:layout_width="8dp"
+                    android:layout_height="0dp"
+                    android:background="#007E33"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/viewIndicator"
+                    android:text="품목"/>
+
+                <TextView
+                    android:id="@+id/tvProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    android:text="@{data.product}"
+                    app:layout_constraintLeft_toRightOf="@id/tvProduct"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tvUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="구매 URL"
+                    app:layout_constraintStart_toEndOf="@id/viewIndicator"
+                    app:layout_constraintTop_toBottomOf="@id/tvProduct"/>
+
+                <TextView
+                    android:id="@+id/tvUrlName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@{data.url}"
+                    app:layout_constraintLeft_toRightOf="@id/tvUrl"
+                    app:layout_constraintTop_toBottomOf="@id/tvProduct"/>
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가격"
+                    app:layout_constraintStart_toEndOf="@id/viewIndicator"
+                    app:layout_constraintTop_toBottomOf="@id/tvUrl"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvPriceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@{data.price + `원`}"
+                    app:layout_constraintLeft_toRightOf="@id/tvPrice"
+                    app:layout_constraintTop_toBottomOf="@id/tvUrlName"/>
+
+                <ImageView
+                    android:id="@+id/viewSpace"
+                    android:src="@drawable/ic_hamberger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </FrameLayout>
+
+
+</layout>

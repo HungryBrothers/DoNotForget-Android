@@ -33,11 +33,19 @@ object Dependencies {
         val core by lazy { "androidx.core:core-ktx:1.7.0" }
         val appCompat by lazy { "androidx.appcompat:appcompat:1.4.0" }
         val constraintLayout by lazy { "androidx.constraintlayout:constraintlayout:2.0.4"}
-        val fragment by lazy { "androidx.fragment:fragment-ktx:1.3.0" }
+
+        val swipeRefreshLayout by lazy { "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshViewVersion}" }
         val recyclerView by lazy { "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}" }
 
         val junit by lazy { "androidx.test.ext:junit:1.1.3" }
         val espresso by lazy { "androidx.test.espresso:espresso-core:3.3.0" }
+
+        val fragment = Fragment
+        object Fragment {
+            val fragmentKtx by lazy { "androidx.fragment:fragment-ktx:1.3.4" }
+            val fragmentNavKtx by lazy { "androidx.navigation:navigation-fragment-ktx:2.3.0" }
+            val fragmentNavUi by lazy { "androidx.navigation:navigation-ui-ktx:2.3.0" }
+        }
 
         val lifecycle = LifeCycle
         object LifeCycle {
