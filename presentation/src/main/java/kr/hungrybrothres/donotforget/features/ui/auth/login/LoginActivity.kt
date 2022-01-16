@@ -31,8 +31,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
 
     fun doLogin() {
-//        viewModel.doLogin(userName = binding.edtUserName.text?.trim().toString(), password = binding.edtUserPassword.text.toString())
-        openActivity(MainActivity::class.java)
-        finish()
+        viewModel.doLogin(userName = binding.edtUserName.text?.trim().toString(), password = binding.edtUserPassword.text.toString())
+//        openActivity(MainActivity::class.java)
+//        finish()
     }
 }

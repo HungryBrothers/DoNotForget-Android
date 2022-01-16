@@ -9,6 +9,7 @@ import kr.hungrybrothres.domain.entity.state.ApiResponse
 import kr.hungrybrothres.donotforget.R
 import kr.hungrybrothres.donotforget.databinding.ActivityJoinBinding
 import kr.hungrybrothres.donotforget.features.base.BaseActivity
+import kr.hungrybrothres.donotforget.features.extensions.snackbar
 
 @AndroidEntryPoint
 class JoinActivity : BaseActivity<ActivityJoinBinding>(R.layout.activity_join) {
@@ -34,27 +35,24 @@ class JoinActivity : BaseActivity<ActivityJoinBinding>(R.layout.activity_join) {
         viewModel.signUpResult.observe(this) {
             when(it) {
                 is ApiResponse.Success -> {
-                    Logger.d("SUCCESS :: ${it.data}")
-                }
-                is ApiResponse.Loading -> {
-                    Logger.d("LOADING :: ${it.data}")
+                    joinSuccess(message = "회원가입에 성공하였습니다.")
+                    finish()
                 }
                 is ApiResponse.Error -> {
-                    Logger.d("ERROR :: ${it.data}")
+                    it.error?.message?.let { message -> showError(message = message) }
                 }
             }
         }
     }
 
-    private fun showError(message: String?) {
-//        val bottomNavView = (requireActivity() as? MainActivity)
-//            ?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
-//
-//        view?.snackbar(
-//            message = message ?: getString(R.string.generic_error),
-//            anchorView = bottomNavView
-//        )
+    private fun joinSuccess(message: String) {
+        binding.topCl.snackbar(message)
     }
+
+    private fun showError(message: String) {
+        binding.topCl.snackbar(message)
+    }
+
 
     fun doJoin() {
         binding.apply {
